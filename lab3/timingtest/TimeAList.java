@@ -57,7 +57,6 @@ public class TimeAList {
     }
 
     public static void timeAListConstruction() {
-        System.out.println("start");
         int n0 = 1000;
         int numOfTests = 8;
         AList<Integer> Ns = createNs(n0,numOfTests);
