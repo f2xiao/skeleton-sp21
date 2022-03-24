@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class LinkedListDequeTest {
 
     @Test
-    public void getTest(){
+    public void getTest() {
         LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
         assertTrue("A newly initialized LLDeque should be empty", lld1.isEmpty());
         lld1.addFirst("front");
@@ -18,10 +18,10 @@ public class LinkedListDequeTest {
         assertEquals(2, lld1.size());
 
         lld1.addLast("back");
-        assertEquals("front", lld1.get(0));
-        assertEquals("middle", lld1.get(1));
-        assertEquals("back", lld1.get(2));
-        assertNull(lld1.get(3));
+        assertEquals("front", lld1.getRecursive(0));
+        assertEquals("middle", lld1.getRecursive(1));
+        assertEquals("back", lld1.getRecursive(2));
+        assertNull(lld1.getRecursive(3));
     }
 
     @Test
