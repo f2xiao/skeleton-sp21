@@ -33,10 +33,15 @@ public class LinkedListDeque<T> {
         size =1;
     }
 
-    /** Add x as the first item in the deque*/
+    /** Add item to the front of the deque*/
     public void addFirst(T item){
-
+        sentinel.next=new StuffNode(item, sentinel.next);
+        sentinel.next.prev = sentinel;
+        sentinel.next.next.prev = sentinel.next;
+        size++;
     }
+
+
 
 
 
