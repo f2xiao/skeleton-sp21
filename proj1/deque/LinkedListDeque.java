@@ -24,7 +24,7 @@ public class LinkedListDeque<T> {
         size =0;
     }
 
-    /** Creates a deque with item as the first item*/
+    /** Create a deque with an item of type T as the first item*/
     public LinkedListDeque(T item){
         sentinel=new StuffNode(null,null);
         sentinel.next = new StuffNode(item, sentinel);
@@ -33,12 +33,30 @@ public class LinkedListDeque<T> {
         size =1;
     }
 
-    /** Add item to the front of the deque*/
+    /** Add an item of type T to the front of the deque*/
     public void addFirst(T item){
         sentinel.next=new StuffNode(item, sentinel.next);
         sentinel.next.prev = sentinel;
         sentinel.next.next.prev = sentinel.next;
         size++;
+    }
+
+    /** Add an item of type T to the back of the deque*/
+
+    public void addLast(T item){
+        sentinel.prev.next = new StuffNode(item, sentinel);
+        sentinel.prev.next.prev = sentinel.prev;
+        sentinel.prev = sentinel.prev.next;
+        size++;
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public boolean isEmpty(){
+        if(size==0) return true;
+        return false;
     }
 
 
