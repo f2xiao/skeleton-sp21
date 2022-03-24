@@ -46,7 +46,6 @@ public class TimeSLList {
         }
         return opCounts;
     }
-
     public static void timeGetLast() {
         // TODO: YOUR CODE HERE
         int n0 = 1000;
@@ -55,6 +54,7 @@ public class TimeSLList {
         AList<Integer> Ns = TimeAList.createNs(n0,numOfTests);
         AList<Double> times = createTimes(Ns, M);
         AList<Integer> opCounts = createCounts(numOfTests,M);
+
         printTimingTable(Ns,times,opCounts);
     }
 
