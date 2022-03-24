@@ -66,7 +66,36 @@ public class LinkedListDeque<T> {
         }
         System.out.println();
     }
+    /** Removes and returns the item at the front of the deque*/
+    public T removeFirst(){
+        if(size==0) return null;
+        T removedFirst = sentinel.next.item;
+        sentinel.next.next.prev = sentinel;
+        sentinel.next = sentinel.next.next;
+        size--;
+        return removedFirst;
+    }
 
+    /** Removes and returns the item at the back of the deque*/
 
+    public T removeLast(){
+        if(size==0) return null;
+        T removedLast = sentinel.prev.item;
+        sentinel.prev = sentinel.prev.prev;
+        sentinel.prev.next = sentinel;
+        size--;
+        return removedLast;
+    }
+
+    /** Gets the item at the given index, using loop*/
+    public T get(int index){
+        if(index>=size) return null;
+        if(index==size-1) return sentinel.prev.item;
+        StuffNode p = sentinel.next;
+        for (int i = index; i >0 ; i--) {
+            p=p.next;
+        }
+        return p.item;
+    }
 
 }
