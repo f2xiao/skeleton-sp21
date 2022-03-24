@@ -59,9 +59,13 @@ public class LinkedListDeque<T> {
         return false;
     }
 
-
-
-
+    /**  Prints the items in the deque from first to last*/
+    public void printDeque(){
+        for(StuffNode p = sentinel.next; p!= sentinel ; p=p.next) {
+            System.out.print(p.item+" ");
+        }
+        System.out.println();
+    }
 
 
 
