@@ -42,7 +42,6 @@ public class LinkedListDeque<T> {
     }
 
     /** Add an item of type T to the back of the deque*/
-
     public void addLast(T item) {
         sentinel.prev.next = new StuffNode(item, sentinel);
         sentinel.prev.next.prev = sentinel.prev;
@@ -55,10 +54,7 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        }
-        return false;
+        return size==0;
     }
 
     /**  Prints the items in the deque from first to last*/
