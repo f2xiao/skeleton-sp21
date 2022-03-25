@@ -107,7 +107,7 @@ public class LinkedListDeque<T> {
         }
         return p.item;
     }
-
+    /** Helper function for getRecursive, get the item at given index and starts at node p*/
     private T getRecursive(int i, StuffNode p) {
         if (i == 0) {
             return p.item;
