@@ -13,6 +13,7 @@ public class ArrayDeque<T> {
         nextFirst = 0; // the deque starts at either items[0] or items[1]
         nextLast = nextFirst + 1;
     }
+
     /** Return the number of items in the deque*/
     public int size() {
         return size;
@@ -27,6 +28,7 @@ public class ArrayDeque<T> {
     public boolean isFull() {
         return size == items.length;
     }
+
     /** Add an item of type T to the front of the deque.*/
     public void addFirst(T item) {
         items[nextFirst] = item;
@@ -50,6 +52,7 @@ public class ArrayDeque<T> {
         }
 
     }
+
    /** Removes and returns the item at the front of the deque.*/
    public T removeFirst() {
        if (size == 0) {
@@ -65,6 +68,7 @@ public class ArrayDeque<T> {
        size--;
        return removedFirst;
    }
+
    /** Removes and returns the item at the back of the deque.*/
    public T removeLast() {
        if (size == 0) {
@@ -80,6 +84,7 @@ public class ArrayDeque<T> {
        size--;
        return removedLast;
    }
+
    /**  Gets the item at the given index*/
    public T get(int index) {
        if(isEmpty()){
