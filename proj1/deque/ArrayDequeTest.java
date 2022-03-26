@@ -53,6 +53,24 @@ public class ArrayDequeTest {
         ad1.addLast("b");
         ad1.addLast("c");
         ad1.addLast("d");
-       assertEquals(ad1.get(0), "a");
+        ad1.addFirst("e");
+        ad1.addFirst("f");
+        assertEquals(ad1.get(0), "f");
+        assertEquals(ad1.get(3), "b");
+    }
+
+    @Test
+    public void moreGetTest(){
+        ArrayDeque<String> ad1 = new ArrayDeque<String>();
+        ad1.addLast("a");
+        ad1.addLast("b");
+        ad1.addLast("c");
+        ad1.addLast("d");
+        ad1.addLast("e");
+        ad1.addLast("f");
+        ad1.addLast("g");
+        ad1.addLast("h");
+        assertEquals(ad1.get(0), "a");
+        assertEquals(ad1.get(7), "h");
     }
 }

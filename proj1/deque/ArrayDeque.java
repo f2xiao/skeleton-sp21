@@ -10,7 +10,7 @@ public class ArrayDeque<T> {
     public ArrayDeque() {
         items = (T[]) new Object[8];
         size = 0;
-        nextFirst = 0;
+        nextFirst = 0; // the deque starts at either items[0] or items[1]
         nextLast = nextFirst + 1;
     }
     /** Return the number of items in the deque*/
@@ -31,10 +31,10 @@ public class ArrayDeque<T> {
     public void addFirst(T item) {
         items[nextFirst] = item;
         size++;
-        if (nextFirst < items.length && nextFirst > 0) {
-            nextFirst--;
-        }else if (nextFirst == 0) {
+        if (nextFirst == 0) {
             nextFirst = items.length-1;
+        } else {
+            nextFirst--;
         }
 
     }
@@ -43,11 +43,12 @@ public class ArrayDeque<T> {
     public void addLast(T item) {
         items[nextLast] = item;
         size++;
-        if (nextLast < items.length && nextLast > 0) {
-            nextLast++;
-        }else if (nextLast == items.length - 1){
+        if (nextLast == items.length - 1) {
             nextLast = 0;
+        } else {
+            nextLast++;
         }
+
     }
    /** Removes and returns the item at the front of the deque.*/
    public T removeFirst() {
@@ -87,10 +88,16 @@ public class ArrayDeque<T> {
        }
 
        if(index >= size) {
+           System.out.println("Index is out of range");
            return null;
        }
 
-       if(nextFirst >= 0 && nextFirst < items.length){
+       // check if the deque starts at items[0] or items[1]
+       if (items[0]==null) {
+           index ++;
+       } else {
+           // deque's first element goes back to end of the array
+           // check if the index goes beyond the end of the array
            if(index>items.length-1-(nextFirst+1)) {
                index -= items.length - (nextFirst + 1);
            }else{
@@ -99,8 +106,6 @@ public class ArrayDeque<T> {
        }
        return items[index];
    }
-
-
 
 }
 
