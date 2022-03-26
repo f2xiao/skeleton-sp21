@@ -45,4 +45,14 @@ public class ArrayDequeTest {
         assertEquals(ad1.removeLast(),"c");
         assertTrue("ad1 should be empty", ad1.isEmpty());
     }
+
+    @Test
+    public void getTest(){
+        ArrayDeque<String> ad1 = new ArrayDeque<String>();
+        ad1.addFirst("a");
+        ad1.addLast("b");
+        ad1.addLast("c");
+        ad1.addLast("d");
+       assertEquals(ad1.get(0), "a");
+    }
 }
